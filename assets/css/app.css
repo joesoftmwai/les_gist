@@ -53,17 +53,29 @@ form input[type="text"]:focus {
 }
 
 .text-area {
-  @apply bg-emDark-dark font-brand font-regular text-white text-xs border border-white h-[320px] resize-none;
+  @apply bg-emDark-dark font-brand font-regular text-white text-xs border border-white h-[300px] resize-none;
   border-top: none;
+  border-left: none;
 }
 
 .text-area:focus {
   @apply focus:outline-none focus:border-white focus:ring-0;
   border-top: none;
+  border-left: none;
 }
 
 .create_button {
   @apply bg-emPurple border border-white font-brand font-regular text-black text-base
+}
+
+.line-numbers {
+  @apply border border-white font-brand font-regular text-emDark-light text-xs bg-emDark-dark  h-[300px] w-[50px] text-right overflow-hidden resize-none;
+  border-right: none;
+  border-top: none;
+}
+
+.line-numbers:focus {
+  @apply focus:outline-none focus:border-white focus:ring-0
 }
 
 .create_button:hover {
