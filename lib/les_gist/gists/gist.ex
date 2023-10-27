@@ -16,6 +16,6 @@ defmodule LesGist.Gists.Gist do
   def changeset(gist, attrs) do
     gist
     |> cast(attrs, [:name, :description, :markup_text, :user_id])
-    |> validate_required([:name, :description, :user_id])
+    |> validate_required([:name, :description, :markup_text, :user_id])
   end
 end
