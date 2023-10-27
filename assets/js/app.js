@@ -23,13 +23,18 @@ import {LiveSocket} from "phoenix_live_view"
 import topbar from "../vendor/topbar"
 
 let csrfToken = document.querySelector("meta[name='csrf-token']").getAttribute("content")
+
 let Hooks = {}
 Hooks.UpdateLineNumbers ={ 
     mounted() {
         this.el.addEventListener("input", () => {
             this.updateLineNumbers()
         })
-         this.updateLineNumbers()
+        this.el.addEventListener("scroll", () => {
+            const lineNumberText = document.querySelector("#line-numbers");
+            lineNumberText.scrollTop = this.el.scrollTop;
+        })
+        this.updateLineNumbers()
     },
 
     updateLineNumbers() {
@@ -40,6 +45,7 @@ Hooks.UpdateLineNumbers ={
         lineNumberText.value = numbers
     }
 };
+
 let liveSocket = new LiveSocket("/live", Socket, {params: {_csrf_token: csrfToken}, hooks: Hooks})
 
 // Show progress bar on live navigation and form submits
