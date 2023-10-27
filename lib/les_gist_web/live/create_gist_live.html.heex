@@ -1,0 +1,40 @@
+<div class="flex items-center justify-center em-gradient">
+  <h1 class="text-3xl font-brand font-bold text-white">
+    Instantly Share Elixir Code, snippets, notes and ...
+  </h1>
+</div>
+
+<.form for={@form} phx-submit="create" phx-change="validate">
+  <div class="px-28 w-50 space-y-4 mb-10">
+    <.input 
+      type="text" 
+      field={@form[:description]} 
+      placeholder="Gist description ..."
+      autocomplete="off" 
+      phx-debounce="blur" 
+    />
+    <div>
+      <div class="flex p-2 items-center bg-emDark rounded-t-md border ">
+        <div class="w-[300px] mb-2">
+          <.input 
+            type="text" 
+            field={@form[:name]} 
+            placeholder="File name including extension ..."
+            autocomplete="off" 
+            phx-debounce="blur"
+          />
+        </div>
+      </div>
+      <%= textarea(@form, :markup_text, 
+        class: "w-full rounded-b-md text-area", 
+        placeholder: "Insert code ...", 
+        spellcheck: "false", 
+        autocomplete: "off", 
+        phx_debounce: "blur")
+      %>
+    </div>
+    <div class="flex justify-end">
+      <.button class="create_button" phx-disable-with="Creating...">Create Gist</.button>
+    </div>
+  </div>
+</.form>
