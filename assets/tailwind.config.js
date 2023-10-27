@@ -15,6 +15,28 @@ module.exports = {
     extend: {
       colors: {
         brand: "#FD4F00",
+        emDark: {
+          dark: "#010101",
+          DEFAULT: "#3C3B3B",
+          light: "#828282"
+        },
+        emPurple: {
+          dark: "#631A61",
+          DEFAULT: "#A834A5",
+          light: "#E88FE5"
+        },
+        emLavender: {
+          dark: "#8c52ff",
+          DEFAULT: '#9d74ee',
+          light: '#bc9aff'
+        }
+      },
+      fontFamily: {
+        brand: ['WorkSans', 'sans-serif']
+      },
+      fontWeight: {
+        regular: "normal",
+        bold: "bold"
       }
     },
   },
